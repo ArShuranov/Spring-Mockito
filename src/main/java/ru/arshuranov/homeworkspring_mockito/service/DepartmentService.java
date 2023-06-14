@@ -12,4 +12,8 @@ public interface DepartmentService {
     Employee getEmployeeWithMinSalary(Integer department);
 
     Map<Integer, List<Employee>> getGroupedByDepartmentEmployees(Integer department);
+
+    Map<Integer, List<Employee>> getGroupedAllEmployees();
+
+    int getSumSalaryByDepartment(Integer department);
 }
