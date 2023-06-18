@@ -49,6 +49,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public int getSumSalaryByDepartment(Integer department) {
         return employeeService.getAllEmployees().values().stream()
                 .filter(employee -> department == null || employee.getDepartment().equals(department)).mapToInt(Employee::getSalary).sum();
+
     }
 
 }

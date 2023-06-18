@@ -13,13 +13,13 @@ import java.util.Map;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     // хранилище для теста
-    private final Map<String, Employee> employees = new HashMap<>(); /*(Map.of
+    private final Map<String, Employee> employees = new HashMap<>(Map.of
             ("IvanIvanov", new Employee("Ivan", "Ivanov", 100000, 4),
                     "Ivan1Ivanov1", new Employee("Ivan1", "Ivanov1", 200000, 2),
                     "Ivan2Ivanov2", new Employee("Ivan2", "Ivanov2", 300000, 3),
                     "Ivan3Ivanov3", new Employee("Ivan3", "Ivanov3", 400000, 3)
 
-            ));*/
+            ));
 
     @Override
     public Map<String, Employee> getAllEmployees() {
