@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+//implementation interface DepartmentService the following methods are implemented: getEmployeeWithMaxSalary,
+// getEmployeeWithMinSalary, getGroupedByDepartmentEmployees, getGroupedAllEmployees, getSumSalaryByDepartment
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
     private final EmployeeServiceImpl employeeService;

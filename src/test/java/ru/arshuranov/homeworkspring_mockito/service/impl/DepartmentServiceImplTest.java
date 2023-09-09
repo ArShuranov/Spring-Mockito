@@ -38,9 +38,6 @@ public class DepartmentServiceImplTest {
             (new Employee("Ivan2", "Ivanov2", 300000, 3)
                     ))));
 
-
-
-
     @BeforeEach
     public void setUp() {
     }
@@ -65,7 +62,7 @@ public class DepartmentServiceImplTest {
     public void shouldReturnNullWhenNoEmployeesMaxSalary() {
         //given
 
-        final int depatmentId = 1; //в мапе нет такого отдела
+        final int depatmentId = 1; //в мапе нет такого отдела || not present in employees
         given(employeeService.getAllEmployees()).willReturn(employees);
 
         //when
