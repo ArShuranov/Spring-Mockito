@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+//implementation interface DepartmentService the following methods are implemented: getEmployeeWithMaxSalary,
+// getEmployeeWithMinSalary, getGroupedByDepartmentEmployees, getGroupedAllEmployees, getSumSalaryByDepartment
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
     private final EmployeeServiceImpl employeeService;
@@ -36,8 +38,20 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Map<Integer, List<Employee>> getGroupedByDepartmentEmployees(Integer department) {
         return employeeService.getAllEmployees().values().stream()
-                .filter(employee -> department==null || employee.getDepartment().equals(department))
+                .filter(employee -> department == null || employee.getDepartment().equals(department))
                 .collect(Collectors.groupingBy(Employee::getDepartment));
+    }
+
+    public Map<Integer, List<Employee>> getGroupedAllEmployees() {
+        return employeeService.getAllEmployees().values().stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment));
+    }
+
+    @Override
+    public int getSumSalaryByDepartment(Integer department) {
+        return employeeService.getAllEmployees().values().stream()
+                .filter(employee -> department == null || employee.getDepartment().equals(department)).mapToInt(Employee::getSalary).sum();
+
     }
 
 }

@@ -10,22 +10,20 @@ import ru.arshuranov.homeworkspring_mockito.service.EmployeeService;
 import java.util.HashMap;
 import java.util.Map;
 
+//implements interface EmployeeService the following methods are implemented: read(getAll), add, remove, find
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     // хранилище для теста
-    private final Map<String, Employee> employees = new HashMap<>(Map.of
-            ("IvanIvanov", new Employee("Ivan", "Ivanov", 100000, 4),
-                    "Ivan1Ivanov1", new Employee("Ivan1", "Ivanov1", 200000, 2),
-                    "Ivan2Ivanov2", new Employee("Ivan2", "Ivanov2", 300000, 3),
-                    "Ivan3Ivanov3", new Employee("Ivan3", "Ivanov3", 400000, 3)
-
-            ));
+    // storage employees
+    private final Map<String, Employee> employees = new HashMap<>();
 
     @Override
     public Map<String, Employee> getAllEmployees() {
         return employees;
     }
 
+
+    //util method for creating key for employees(HashMap key = firstName + lastName)
     private String getEmployeeKey(String firstName, String lastName) {
         return firstName + lastName;
     }
@@ -42,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee addEmployee(String firstName, String lastName, int salary, int department) {
         String key = getEmployeeKey(firstName, lastName);
-        StringUtilsCheck(firstName, lastName);
+        //StringUtilsCheck(firstName, lastName);
 
         if (employees.containsKey(key)) {
             throw new RuntimeException("Такой сотрудник уже есть в базе");
