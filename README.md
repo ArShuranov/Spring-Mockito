@@ -1,3 +1,3 @@
 # Spring-Mockito
 Study project
-Junit & mockito test, for EmployeeService and DepartmentService
+Junit & mockito tests, for EmployeeService and DepartmentService
